@@ -40,13 +40,13 @@ contract house{
         signedcontract=sc;
     }
 
-    //收押金，限制只能付跟合約設定一樣的金額
+    //付押金，限制只能付跟合約設定一樣的金額
     function payDeposit() payable public onlyTenant{
         require(msg.value==rdeposit,"not same as deposit value");
         tenantAddr=payable(msg.sender);
         emit Deposit(msg.value);        
     } 
-    //收租金，限制只能付跟合約設定一樣的金額
+    //付租金，限制只能付跟合約設定一樣的金額
     function payRent()payable public onlyTenant{
         require(msg.value==rent,"not same as rent value");
         emit Deposit(msg.value);
